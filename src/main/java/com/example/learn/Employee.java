@@ -2,14 +2,17 @@ package com.example.learn;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component("e1")
 public class Employee {
-    private String name;
-    private int id;
 
-    @Autowired
-    // @Qualifier("address3")
-    private Address address;
+    @Value("lakshay")
+    private String name;
+    
+    @Value("123")
+    private int id;
     
     public String getName() {
         return name;
@@ -20,17 +23,14 @@ public class Employee {
     public int getId() {
         return id;
     }
+    @Override
+    public String toString() {
+        return "Employee [name=" + name + ", id=" + id + "]";
+    }
     public void setId(int id) {
         this.id = id;
     }
-    public Address getAddress() {
-        return address;
-    }
-    @Override
-    public String toString() {
-        return "Employee [name=" + name + ", id=" + id + ", address=" + address + "]";
-    }
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+
+    
+    
 }
